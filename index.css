@@ -4,13 +4,13 @@
   }
 @font-face {
     font-family: 'logofont';
-    src: url('Kanit-Bold.ttf') format('truetype');
+    src: url('fonts/Kanit-Bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
   @font-face {
     font-family: 'buttonfont';
-    src: url('Kanit-Regular.ttf') format('truetype');
+    src: url('fonts/Kanit-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
