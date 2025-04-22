@@ -440,7 +440,10 @@
   
 }
 /*mobile*/
-@media screen and (max-width: 596px) {
+@media screen and (max-width: 596px) 
+
+{
+  
   html,body{
     overflow-x:hidden ;
   }
@@ -690,8 +693,96 @@
     max-width: 90%;
     
   }
-  
+}
+@media screen and (max-width: 1200px ) and (min-width:597px){
+    
+  * {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    box-sizing: border-box;
   }
+  html,body{
+    overflow-x:hidden;
+  }
+  .description{
+    width: 100%;
+    padding: 5%;
+    height: 700px;
+  }
+  
+  .visualcontent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .image4 {
+   margin-right: 70%;
+   width: 60%;
+   height: 70%;
+  }
+  .title{
+    font-size: 300%;
+    margin-top: 20%;
+  }
+  .menu{
+    margin-left: 15%;
+    margin-top: 2%;
+  }
+  .info1{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    gap: 20%;
+  }
+  .info3{
+    margin: 0 0 0 0;
+  }
+  .info2{
+    margin: 0 0 0 0;
+  }
+  .info4{
+    position:relative;
+    left:3%
+  }
+  .inputfield{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .description2{
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .cvsubmis{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .img5{
+    width: 40%;
+    margin-left: 50%;
+    margin-bottom: 35%;
+  }
+  .description3{
+   position: relative;
+   right: 75%;
+   bottom:40%;
+  }
+  .credits{
+    position: relative;
+    right: 109%;
+    top:15%;
+  }
+  .nfact{
+    box-sizing: border-box;
+    position: relative;
+    right: 108%;
+    bottom: 23%;
+  }
+}
+
  
   
 
