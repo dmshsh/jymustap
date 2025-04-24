@@ -1,5 +1,4 @@
-
-  body {
+ body {
     background-color: rgb(241,241,241);
   }
 @font-face {
@@ -694,7 +693,7 @@
     
   }
 }
-@media screen and (max-width: 1200px ) and (min-width:597px){
+@media screen and (max-width: 1200px ) and (min-width:1100px){
     
   * {
     margin: 0 0 0 0;
@@ -778,11 +777,258 @@
   .nfact{
     box-sizing: border-box;
     position: relative;
-    right: 108%;
-    bottom: 22%;
+    right: 100%;
+    bottom: 23%;
   }
 }
-
- 
+@media screen and (max-width:768px) and (min-width:597px){
   
+  
+    body {
+      padding: 0 15px;
+    }
+    html{
+      overflow-x: hidden;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      align-items: flex-start; 
+      padding-top: 5px; 
+    }
+    
+    .logotext {
+      position: static; 
+      margin-top: 5px; 
+    }
+    
+    .magnifier1 {
+      padding-top: 5px; 
+      position: relative;
+      top: 0; 
+      left: 0;
+      margin-right: 5px; 
+    }
+    
+    .menu {
+      position: static;
+      width: auto;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .but1, .but2, .but3, .but4 {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    
+
+    .description {
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+    }
+    
+    .info {
+      width: 100%;
+      height: auto;
+      order: 2;
+    }
+    
+    .descriptiontext {
+      width: 100%;
+      gap: 20px;
+    }
+    
+    .title {
+      font-size: 36px;
+      width: 100%;
+      height: auto;
+    }
+    
+    .descr {
+      width: 100%;
+      font-size: 16px;
+    }
+    
+    .descriptionbutton {
+      margin-top: 30px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .visualcontent {
+      width: 100%;
+      margin-left: 0;
+      position: relative;
+      top: 0;
+      order: 1;
+      margin-bottom: 30px;
+    }
+    
+    .image4 {
+      width: 100%;
+      height: auto;
+      padding: 0;
+    }
+    
+    .fire1, .dollar1 {
+      display: none; 
+    }
+    
+  
+    .howitworks {
+      padding: 60px 20px;
+    }
+    
+    .info1 {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .title1 {
+      font-size: 40px;
+      width: 100%;
+      position: static;
+      margin-top: 15px;
+    }
+    
+    .frame18 {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .info2, .info3 {
+      width: 80%;
+      margin: 0;
+      text-align: center;
+    }
+    .info4{
+      position: relative;
+      left:20%;
+    }
+    .tit3,.des3{
+      position: relative;
+      right:30%;
+    }
+    .png1, .png2, .png3 {
+      margin-left: 0;
+    }
+    
+    .des1, .des2, .des3 {
+      margin-left: 0;
+    }
+    
+  
+    .inputfield {
+      height: auto;
+      padding: 60px 20px;
+    }
+    
+    .info5 {
+      margin: 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .title2 {
+      font-size: 40px;
+    }
+    
+    .description2 {
+      width: 100%;
+      margin: 20px 0;
+    }
+    
+    .searchrect {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .but5 {
+      margin: 30px auto 0;
+      position: static;
+      display: block;
+    }
+    
+  
+    .cvsubmis {
+      height: auto;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .img5 {
+      position: static;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .description3 {
+      position: static;
+      margin: 40px 0 0;
+      text-align: center;
+    }
+    
+    .title3 {
+      font-size: 32px;
+    }
+    
+    .descr3 {
+      width: 100%;
+      margin: 15px 0;
+    }
+    
+    .but6 {
+      margin: 0 auto;
+    }
+    
+  
+    .footbl {
+      height: auto;
+      padding: 30px 20px;
+    }
+    
+    .navmenu {
+      width: 100%;
+      margin: 0;
+      justify-content: center;
+      gap: 20px;
+      position: static;
+    }
+    
+    .credits {
+      margin: 30px auto 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .nfact {
+      margin: 15px auto 0;
+      text-align: center;
+    
+  }
+}
+@media screen and (min-width:769px) and (max-width:1099px){
+  html,body{
+    overflow-x: hidden;
+  }
+  .info{
+    width: 100%;
+    position: absolute;
+    right:-10%;
+  }
+}
 
