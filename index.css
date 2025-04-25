@@ -1022,13 +1022,80 @@
   }
 }
 @media screen and (min-width:769px) and (max-width:1099px){
-  html,body{
+  html{
     overflow-x: hidden;
   }
-  .info{
-    width: 100%;
-    position: absolute;
-    right:-10%;
+  body{
+    overflow-x: hidden;
   }
+  .descriptiontext{
+    margin-left: -100%;
+    margin-top:15%;
+  }
+  .dollar1{
+    margin-left:-110%;
+  }
+
+  .fire1{
+    width: 10%;
+    height: 10%;
+  }
+  .title{
+    font-size: 250%;
+  }
+  .descr{
+    margin-top: -20%;
+  }
+  .descriptionbutton{
+    margin-left: -100%;
+    margin-top:5%;
+  }
+  .descr{
+    font-size: 80%;
+    width: 85%;
+  }
+  
+  .image4{
+    width: 50%;
+    height: 50%;
+    margin-left: -130%;
+  }
+  .howitworks{
+    margin-top: -30%;
+  }
+  .info3{
+    margin-left: 34%;
+  }
+  .info4{
+    margin-left: 58%;
+  }
+  .info5{
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+  .cvsubmis{
+    height: 50%;
+    margin-top: 5%;
+  }
+  .img5{
+    width: 40%;
+    margin-left: -30%;
+  }
+  .description3{
+    margin-left: 50%;
+  }
+  .title3{
+    font-size: clamp(14px, 2vw, 24px);
+    margin-top: 30%;
+    margin-left: 5%;
+  }
+  .credits{
+    margin-left: 5%;
+    position: relative;
+    top:10%;
+    font-size: 2vw;
+  }
+  
 }
+
 
