@@ -1,0 +1,151 @@
+/* Основные стили для кроппера */
+.cropper-container { 
+  touch-action: none; 
+  user-select: none; 
+}
+
+.cropper-bg { 
+  background: transparent !important; 
+}
+
+.cropper-canvas > img { 
+  display: block; 
+  max-width: none !important;
+  /* Фиксируем изображение - запрещаем любые трансформации */
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+.cropper-wrap-box,
+.cropper-canvas,
+.cropper-drag-box,
+.cropper-crop-box,
+.cropper-modal,
+.cropper-view-box {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+}
+
+/* Отключаем взаимодействие с canvas (изображением) */
+.cropper-canvas {
+  pointer-events: none !important;
+}
+
+/* Разрешаем взаимодействие только с элементами управления кроп-боксом */
+.cropper-crop-box,
+.cropper-point,
+.cropper-line {
+  pointer-events: auto !important;
+}
+
+/* Затемнение вокруг области (маска) */
+.cropper-modal { 
+  background: rgba(0,0,0,.5); 
+}
+
+/* Рамка выделения */
+.cropper-view-box { 
+  outline: 1px solid rgba(51,153,255,.85); 
+}
+
+/* Сетка 3x3 */
+.cropper-dashed { 
+  position: absolute; 
+  opacity: .8; 
+}
+
+.cropper-dashed.dashed-h {
+  top: 33.3333%; 
+  bottom: 33.3333%;
+  border-top: 1px dashed rgba(255,255,255,.7);
+  border-bottom: 1px dashed rgba(255,255,255,.7);
+}
+
+.cropper-dashed.dashed-v {
+  left: 33.3333%; 
+  right: 33.3333%;
+  border-left: 1px dashed rgba(255,255,255,.7);
+  border-right: 1px dashed rgba(255,255,255,.7);
+}
+
+/* Ручки для изменения размера */
+.cropper-point {
+  position: absolute; 
+  width: 8px; 
+  height: 8px;
+  background-color: #39f; 
+  border-radius: 50%; 
+  opacity: .95;
+  pointer-events: auto !important;
+}
+
+.cropper-point.point-e  { 
+  right: -4px; 
+  top: 50%; 
+  margin-top: -4px; 
+  cursor: ew-resize; 
+}
+
+.cropper-point.point-w  { 
+  left: -4px;  
+  top: 50%; 
+  margin-top: -4px; 
+  cursor: ew-resize; 
+}
+
+.cropper-point.point-n  { 
+  top: -4px;   
+  left: 50%; 
+  margin-left: -4px; 
+  cursor: ns-resize; 
+}
+
+.cropper-point.point-s  { 
+  bottom: -4px;
+  left: 50%; 
+  margin-left: -4px; 
+  cursor: ns-resize; 
+}
+
+.cropper-point.point-ne { 
+  right: -4px; 
+  top: -4px; 
+  cursor: nesw-resize; 
+}
+
+.cropper-point.point-nw { 
+  left: -4px;  
+  top: -4px; 
+  cursor: nwse-resize; 
+}
+
+.cropper-point.point-se { 
+  right: -4px; 
+  bottom: -4px; 
+  cursor: nwse-resize; 
+}
+
+.cropper-point.point-sw { 
+  left: -4px;  
+  bottom: -4px; 
+  cursor: nesw-resize; 
+}
+
+/* Линии для изменения размера */
+.cropper-line {
+  pointer-events: auto !important;
+}
+
+/* Отключаем курсор перемещения для всего контейнера */
+.cropper-container * {
+  cursor: default !important;
+}
+
+/* Восстанавливаем правильные курсоры для элементов управления */
+.cropper-point,
+.cropper-line {
+  cursor: inherit !important;
+}
