@@ -1,0 +1,179 @@
+/* Global styles for the dish details bottom sheet */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Bottom sheet responsive adjustments */
+@media (max-width: 375px) {
+  /* iPhone SE and smaller devices */
+  .bottom-sheet {
+    min-height: 85vh;
+  }
+  
+  .bottom-sheet .hero-image {
+    height: 180px;
+  }
+  
+  .bottom-sheet .content-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 414px) {
+  /* iPhone 12/13/14 standard size */
+  .bottom-sheet {
+    min-height: 80vh;
+  }
+  
+  .bottom-sheet .hero-image {
+    height: 200px;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 480px) {
+  /* iPhone Plus/Max sizes */
+  .bottom-sheet {
+    min-height: 75vh;
+  }
+  
+  .bottom-sheet .hero-image {
+    height: 220px;
+  }
+}
+
+@media (min-width: 481px) {
+  /* Larger phones and tablets */
+  .bottom-sheet {
+    min-height: 70vh;
+    max-width: 480px;
+  }
+  
+  .bottom-sheet .hero-image {
+    height: 240px;
+  }
+}
+
+/* Ensure proper touch targets */
+@media (max-height: 667px) {
+  /* Shorter screens like iPhone SE */
+  .bottom-sheet .fixed-bottom {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  .bottom-sheet .quantity-button,
+  .bottom-sheet .add-button {
+    height: 44px; /* Minimum touch target */
+  }
+}
+
+/* Safe area adjustments for devices with notches */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .bottom-sheet .fixed-bottom {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Smooth scrolling for the content area */
+.bottom-sheet-content {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar for webkit browsers */
+.bottom-sheet-content::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Focus states for accessibility */
+.bottom-sheet button:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Radio button custom styling */
+.custom-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Ensure text doesn't break awkwardly */
+.dish-title {
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Loading state for images */
+.dish-image {
+  background-color: #f3f4f6;
+  background-image: linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.5) 25%, rgba(255,255,255,0.5) 75%, transparent 75%, transparent),
+                    linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.5) 25%, rgba(255,255,255,0.5) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+/* Backdrop blur support check */
+@supports (backdrop-filter: blur(8px)) {
+  .rating-badge {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+@supports not (backdrop-filter: blur(8px)) {
+  .rating-badge {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Animation for bottom sheet */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.bottom-sheet.open {
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bottom-sheet {
+    border: 2px solid #000;
+  }
+  
+  .bottom-sheet button {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .bottom-sheet {
+    transition: none;
+  }
+  
+  .bottom-sheet.open {
+    animation: none;
+  }
+  
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
