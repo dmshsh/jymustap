@@ -204,29 +204,30 @@ export default function HomePage() {
 
       {/* Bottom Sheet */}
       <BottomSheet open={open} onClose={() => setOpen(false)} title={dish.name}>
-        <div className="px-4 pb-6">
+        <div className="content-padding px-4 pb-6">
           {/* Hero image */}
-          <div className="relative w-full h-48 sm:h-56 overflow-hidden rounded-2xl mb-4">
+          <div className="relative w-full hero-image h-48 sm:h-56 overflow-hidden rounded-2xl mb-4 dish-image">
             <img
               src={dish.imageUrl}
               onError={(e) => ((e.target as HTMLImageElement).src = fallbackImg)}
               alt={dish.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-opacity duration-200"
+              loading="lazy"
             />
-            <div className="absolute left-3 bottom-3 flex items-center gap-1 rounded-full bg-black/50 text-white text-xs px-2.5 py-1.5 backdrop-blur-sm">
+            <div className="absolute left-3 bottom-3 flex items-center gap-1.5 rounded-full bg-black/50 text-white text-xs px-2.5 py-1.5 rating-badge">
               <StarIcon sx={{ fontSize: 12 }} />
-              <span>{dish.rating}</span>
+              <span className="font-medium">{dish.rating}</span>
             </div>
           </div>
 
           {/* Title */}
-          <h1 className="text-xl font-bold mb-3 leading-tight">{dish.name}</h1>
+          <h1 className="text-xl sm:text-2xl font-bold mb-3 leading-tight dish-title text-gray-900">{dish.name}</h1>
 
           {/* Description */}
-          <p className="text-gray-600 text-sm leading-relaxed mb-4">{dish.description}</p>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">{dish.description}</p>
 
           {/* Nutrition info */}
-          <div className="flex items-center gap-6 mb-4">
+          <div className="flex items-center gap-4 sm:gap-6 mb-4">
             <div className="flex items-center gap-1.5 text-gray-600 text-sm">
               <LocalFireDepartmentIcon sx={{ fontSize: 16, color: '#9CA3AF' }} />
               <span>{dish.kcal}ккал</span>
@@ -239,7 +240,7 @@ export default function HomePage() {
 
           {/* Composition */}
           <div className="mb-6">
-            <span className="text-sm text-gray-700 font-medium">Состав: </span>
+            <span className="text-sm font-medium text-gray-900">Состав: </span>
             <span className="text-sm text-gray-600">{dish.composition}</span>
           </div>
 
@@ -248,55 +249,59 @@ export default function HomePage() {
             <h3 className="text-base font-semibold mb-3 text-gray-900">Добавить</h3>
             
             <div className="space-y-3">
-              <label className="flex items-center gap-3 cursor-pointer">
+              <label className="flex items-center gap-3 cursor-pointer py-1 -mx-1 px-1 rounded-lg hover:bg-gray-50 transition-colors">
                 <input
                   type="radio"
                   name="addon"
-                  className="hidden"
+                  className="hidden custom-radio"
                   checked={addon === 'jam'}
                   onChange={() => setAddon('jam')}
                 />
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
-                  addon === 'jam' ? 'border-black' : 'border-gray-300'
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
+                  addon === 'jam' ? 'border-black bg-black' : 'border-gray-300'
                 }`}>
-                  {addon === 'jam' && <div className="w-2.5 h-2.5 bg-black rounded-full" />}
+                  {addon === 'jam' && <div className="w-2 h-2 bg-white rounded-full" />}
                 </div>
-                <span className="text-sm text-gray-800">+1 порция джема</span>
+                <span className={`text-sm transition-colors ${addon === 'jam' ? 'text-gray-900 font-medium' : 'text-gray-700'}`}>
+                  +1 порция джема
+                </span>
               </label>
 
-              <label className="flex items-center gap-3 cursor-pointer">
+              <label className="flex items-center gap-3 cursor-pointer py-1 -mx-1 px-1 rounded-lg hover:bg-gray-50 transition-colors">
                 <input
                   type="radio"
                   name="addon"
-                  className="hidden"
+                  className="hidden custom-radio"
                   checked={addon === 'pancakes'}
                   onChange={() => setAddon('pancakes')}
                 />
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
-                  addon === 'pancakes' ? 'border-black' : 'border-gray-300'
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
+                  addon === 'pancakes' ? 'border-black bg-black' : 'border-gray-300'
                 }`}>
-                  {addon === 'pancakes' && <div className="w-2.5 h-2.5 bg-black rounded-full" />}
+                  {addon === 'pancakes' && <div className="w-2 h-2 bg-white rounded-full" />}
                 </div>
-                <span className="text-sm text-gray-800">+1 порция панкейков</span>
+                <span className={`text-sm transition-colors ${addon === 'pancakes' ? 'text-gray-900 font-medium' : 'text-gray-700'}`}>
+                  +1 порция панкейков
+                </span>
               </label>
             </div>
           </div>
 
           {/* Reviews section */}
-          <div className="mb-6">
+          <div className="mb-20">
             <h3 className="text-base font-semibold mb-3 text-gray-900">Отзывы</h3>
             
             <div className="space-y-4">
               {dish.reviews.map((review) => (
-                <div key={review.id} className="border-b border-gray-100 pb-4 last:border-b-0 last:pb-0">
+                <div key={review.id} className="pb-4 border-b border-gray-100 last:border-b-0 last:pb-0">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="flex items-center gap-1">
                       <StarIcon sx={{ fontSize: 14, color: '#FCD34D' }} />
-                      <span className="text-sm font-medium">{review.rating}</span>
+                      <span className="text-sm font-medium text-gray-900">{review.rating}</span>
                     </div>
                     <span className="text-xs text-gray-400">{review.date}</span>
                   </div>
-                  <p className="text-sm text-gray-600">{review.text}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">{review.text}</p>
                 </div>
               ))}
             </div>
@@ -304,21 +309,23 @@ export default function HomePage() {
         </div>
 
         {/* Fixed bottom section */}
-        <div className="sticky bottom-0 bg-white border-t border-gray-100 px-4 py-4">
+        <div className="sticky bottom-0 bg-white border-t border-gray-100 fixed-bottom px-4 py-4 safe-area-bottom">
           <div className="flex items-center justify-between gap-4">
             {/* Quantity controls */}
             <div className="flex items-center gap-3">
               <button 
                 onClick={() => handleQuantityChange(-1)}
-                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-lg font-medium hover:bg-gray-50 transition-colors"
+                className="quantity-button w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gray-200 flex items-center justify-center text-lg font-medium hover:bg-gray-50 active:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={quantity <= 1}
+                aria-label="Уменьшить количество"
               >
                 –
               </button>
-              <span className="text-base font-medium min-w-[20px] text-center">{quantity}</span>
+              <span className="text-base font-medium min-w-[24px] text-center">{quantity}</span>
               <button 
                 onClick={() => handleQuantityChange(1)}
-                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-lg font-medium hover:bg-gray-50 transition-colors"
+                className="quantity-button w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gray-200 flex items-center justify-center text-lg font-medium hover:bg-gray-50 active:bg-gray-100 transition-colors"
+                aria-label="Увеличить количество"
               >
                 +
               </button>
@@ -330,7 +337,7 @@ export default function HomePage() {
                 // Handle add to cart logic here
                 setOpen(false);
               }}
-              className="flex-1 h-12 rounded-full bg-black text-white font-medium text-sm hover:bg-gray-800 transition-colors"
+              className="add-button flex-1 h-12 sm:h-14 rounded-full bg-black text-white font-medium text-sm sm:text-base hover:bg-gray-800 active:bg-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
             >
               Добавить • {(dish.price * quantity).toLocaleString()} ₸
             </button>
